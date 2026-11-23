@@ -1,0 +1,14 @@
+.persistent-cap-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-cap-layer);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.persistent-cap-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}

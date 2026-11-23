@@ -1,0 +1,258 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.72;
+  background-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(42, 69, 120, 0.32);
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-silver);
+  outline-offset: 3px;
+}
+
+.scene-ivory :focus-visible,
+.scene-paper :focus-visible {
+  outline-color: var(--color-navy-academic);
+}
+
+/* Layout Primitives */
+.editorial-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-inline: var(--gutter-x);
+}
+
+.scene-dark {
+  background-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+  position: relative;
+}
+
+.scene-ivory {
+  background-color: var(--color-ivory);
+  color: var(--color-graphite);
+  position: relative;
+}
+
+.scene-paper {
+  background-color: var(--color-white-soft);
+  color: var(--color-graphite);
+  position: relative;
+}
+
+/* Subtle Film Grain & Fine Paper Texture */
+.film-grain {
+  position: relative;
+}
+
+.film-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: radial-gradient(rgba(255, 253, 252, 0.75) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+.paper-texture {
+  background-image:
+    radial-gradient(rgba(27, 35, 64, 0.03) 0.7px, transparent 0.7px),
+    linear-gradient(180deg, rgba(255, 253, 252, 0.55) 0%, rgba(247, 243, 238, 0.25) 100%);
+  background-size: 18px 18px, 100% 100%;
+}
+
+/* Editorial Typography Utilities */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.eyebrow--accent {
+  color: var(--color-silver);
+}
+
+.scene-ivory .eyebrow--accent,
+.scene-paper .eyebrow--accent {
+  color: var(--color-navy-academic);
+}
+
+.eyebrow--muted {
+  color: var(--color-muted);
+}
+
+.display-serif {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.editorial-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-silver-faint), transparent);
+  border: 0;
+}
+
+.scene-ivory .editorial-rule,
+.scene-paper .editorial-rule {
+  background: linear-gradient(90deg, transparent, rgba(42, 69, 120, 0.24), transparent);
+}
+
+/* Coherent Editorial Button System */
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+  transition:
+    background-color var(--duration-hover) var(--ease-tactile),
+    color var(--duration-hover) var(--ease-tactile),
+    border-color var(--duration-hover) var(--ease-tactile),
+    transform var(--duration-press) var(--ease-tactile);
+}
+
+.btn-editorial:active {
+  transform: scale(0.985);
+}
+
+.btn-editorial .btn-icon {
+  transition: transform var(--duration-hover) var(--ease-tactile);
+}
+
+.btn-editorial:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+.btn-editorial--primary {
+  background-color: var(--color-navy-midnight);
+  border-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+}
+
+.btn-editorial--primary:hover {
+  background-color: var(--color-navy-academic);
+  border-color: var(--color-navy-academic);
+}
+
+.btn-editorial--outline-dark {
+  background-color: transparent;
+  border-color: rgba(27, 35, 64, 0.34);
+  color: var(--color-navy-midnight);
+}
+
+.btn-editorial--outline-dark:hover {
+  border-color: var(--color-navy-midnight);
+  background-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+}
+
+.btn-editorial--outline-light {
+  background-color: transparent;
+  border-color: rgba(200, 207, 218, 0.38);
+  color: var(--color-white-soft);
+}
+
+.btn-editorial--outline-light:hover {
+  border-color: var(--color-white-soft);
+  background-color: rgba(255, 253, 252, 0.1);
+}
+
+.btn-editorial:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

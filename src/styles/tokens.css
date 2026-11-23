@@ -1,0 +1,62 @@
+:root {
+  /* Palette — Elegant Academic × Soft Cinematic (Midnight Navy & Ivory) */
+  --color-navy-midnight: #1b2340;
+  --color-navy-academic: #2a4578;
+  --color-navy-ink: #243254;
+  --color-shadow: #0f1016;
+  --color-ivory: #f7f3ee;
+  --color-ivory-deep: #ede7df;
+  --color-white-soft: #fffdfc;
+  --color-silver: #c8cfda;
+  --color-silver-faint: rgba(200, 207, 218, 0.28);
+  --color-graphite: #2f3138;
+  --color-muted: #8b96ae;
+  --color-muted-dark: #5e687e;
+  --color-blush: #e6c7be;
+
+  /* Semantic Aliases */
+  --color-ink: var(--color-navy-midnight);
+  --color-ink-elevated: var(--color-navy-ink);
+  --color-paper: var(--color-white-soft);
+  --color-accent: var(--color-navy-academic);
+  --color-accent-soft: var(--color-silver);
+  --color-border-dark: rgba(200, 207, 218, 0.18);
+  --color-border-light: rgba(42, 69, 120, 0.16);
+
+  /* Typography */
+  --font-serif: 'Barlow Semi Condensed', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Barlow', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Fluid Type Scale */
+  --text-hero: clamp(3rem, 8.8vw, 9rem);
+  --text-display: clamp(2.15rem, 5.4vw, 5.25rem);
+  --text-heading: clamp(1.7rem, 3.4vw, 3.1rem);
+  --text-subhead: clamp(1.12rem, 1.8vw, 1.48rem);
+  --text-body: clamp(0.96rem, 1.08vw, 1.12rem);
+  --text-label: clamp(0.6875rem, 0.8vw, 0.78rem);
+
+  /* Layout */
+  --container-max: 1440px;
+  --gutter-x: clamp(1.25rem, 4.5vw, 4.5rem);
+  --section-py: clamp(4.75rem, 9.5vw, 8.75rem);
+
+  /* Motion */
+  --duration-press: 150ms;
+  --duration-hover: 220ms;
+  --duration-reveal: 560ms;
+  --duration-type: 860ms;
+  --duration-scene: 1150ms;
+  --duration-envelope: 1500ms;
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-tactile: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* Layers (explicit stacking for persistent 3D canvas integration) */
+  --z-base: 1;
+  --z-cap-layer: 15;
+  --z-content-above: 20;
+  --z-nav: 40;
+  --z-progress: 45;
+  --z-modal: 70;
+  --z-prelude: 90;
+}

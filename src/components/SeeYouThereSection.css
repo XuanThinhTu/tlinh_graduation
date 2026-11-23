@@ -1,0 +1,613 @@
+.seeyou {
+  padding-block: clamp(5rem, 10vw, 9rem);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.seeyou__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.seeyou__heading {
+  font-size: var(--text-display);
+  color: var(--color-navy-midnight);
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.seeyou__heading-line {
+  display: block;
+}
+
+.seeyou__subtitle {
+  font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+  color: var(--color-muted-dark);
+}
+
+/* Countdown */
+.seeyou__countdown {
+  max-width: 680px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-border-light);
+}
+
+.seeyou__countdown-ended {
+  margin-top: 0.75rem;
+  font-size: 1.45rem;
+  color: var(--color-navy-academic);
+}
+
+.seeyou__timer-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.seeyou__timer-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.25rem;
+  border-right: 1px solid var(--color-border-light);
+}
+
+.seeyou__timer-cell:last-child {
+  border-right: 0;
+}
+
+.seeyou__timer-num {
+  font-size: clamp(1.85rem, 4.4vw, 3.2rem);
+  color: var(--color-navy-midnight);
+  line-height: 1;
+}
+
+.seeyou__timer-unit {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+}
+
+/* Direct Contact Buttons */
+.seeyou__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: clamp(3.5rem, 7vw, 5.25rem);
+}
+
+.seeyou__contact-fallback {
+  text-align: center;
+  color: var(--color-muted-dark);
+  margin-bottom: 3rem;
+}
+
+/* Upgraded Keepsake Studio */
+.seeyou__keepsake-block {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.seeyou__keepsake-intro {
+  text-align: center;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.seeyou__keepsake-title {
+  font-size: clamp(1.85rem, 3.4vw, 2.65rem);
+  color: var(--color-navy-midnight);
+}
+
+.seeyou__keepsake-note {
+  font-size: 0.94rem;
+  color: var(--color-muted-dark);
+}
+
+/* Controls Panel */
+.keepsake-controls {
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-border-light);
+  padding: clamp(1.15rem, 3vw, 1.75rem);
+}
+
+.keepsake-controls__inputs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .keepsake-controls__inputs {
+    grid-template-columns: 1fr 1.35fr;
+  }
+}
+
+.keepsake-controls__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.keepsake-controls__label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+}
+
+.seeyou__input {
+  width: 100%;
+  background-color: var(--color-white-soft);
+  border: 1px solid rgba(42, 69, 120, 0.24);
+  border-radius: 2px;
+  padding: 0.78rem 0.95rem;
+  font-size: 0.96rem;
+  color: var(--color-navy-midnight);
+}
+
+.seeyou__input:focus {
+  border-color: var(--color-navy-midnight);
+  outline: 2px solid var(--color-navy-academic);
+  outline-offset: 2px;
+}
+
+.keepsake-themes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  padding-top: 0.25rem;
+}
+
+.keepsake-theme-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.52rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(42, 69, 120, 0.24);
+  background-color: var(--color-white-soft);
+  color: var(--color-graphite);
+  font-size: 0.84rem;
+  font-weight: 500;
+  transition:
+    background-color 220ms var(--ease-tactile),
+    color 220ms var(--ease-tactile),
+    border-color 220ms var(--ease-tactile);
+}
+
+.keepsake-theme-pill.is-active {
+  background-color: var(--color-navy-midnight);
+  border-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+}
+
+.keepsake-theme-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 16, 22, 0.22);
+}
+
+.keepsake-theme-swatch--navy {
+  background: linear-gradient(135deg, #1b2340 50%, #c8cfda 100%);
+}
+
+.keepsake-theme-swatch--ivory {
+  background: linear-gradient(135deg, #fffdfc 50%, #2a4578 100%);
+}
+
+.keepsake-theme-swatch--blush {
+  background: linear-gradient(135deg, #fdf7f5 45%, #e6c7be 100%);
+}
+
+/* Collectible 3D-Tilt Keepsake Ticket */
+.keepsake-stage {
+  width: 100%;
+  perspective: 1400px;
+}
+
+.keepsake-ticket {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --foil-x: 50%;
+  --foil-y: 50%;
+
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0 32px 72px rgba(15, 16, 22, 0.18),
+    0 6px 20px rgba(15, 16, 22, 0.08);
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: transform 240ms var(--ease-cinematic), box-shadow 260ms var(--ease-cinematic);
+  will-change: transform;
+}
+
+@media (min-width: 820px) {
+  .keepsake-ticket {
+    grid-template-columns: 1fr 240px;
+  }
+}
+
+/* Holographic Silver Foil Glint Overlay */
+.keepsake-ticket__foil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  background: radial-gradient(
+    circle 340px at var(--foil-x) var(--foil-y),
+    rgba(255, 253, 252, 0.22) 0%,
+    rgba(230, 199, 190, 0.08) 38%,
+    transparent 72%
+  );
+  transition: opacity 280ms ease;
+}
+
+@media (hover: hover) {
+  .keepsake-ticket:hover .keepsake-ticket__foil {
+    opacity: 1;
+  }
+}
+
+/* Theme Variations */
+.keepsake-ticket--navy {
+  background: linear-gradient(140deg, #1b2340 0%, #13192f 100%);
+  color: var(--color-white-soft);
+  border: 2px solid var(--color-silver);
+  --tk-border: rgba(200, 207, 218, 0.34);
+  --tk-muted: #8b96ae;
+  --tk-accent: #e6c7be;
+  --tk-detail-bg: rgba(255, 253, 252, 0.06);
+  --tk-stub-bg: #111629;
+  --tk-seal-bg: #2a4578;
+}
+
+.keepsake-ticket--ivory {
+  background: linear-gradient(140deg, #fffdfc 0%, #f7f3ee 100%);
+  color: var(--color-navy-midnight);
+  border: 2px solid var(--color-navy-midnight);
+  --tk-border: rgba(42, 69, 120, 0.26);
+  --tk-muted: #727d94;
+  --tk-accent: #2a4578;
+  --tk-detail-bg: rgba(27, 35, 64, 0.045);
+  --tk-stub-bg: #1b2340;
+  --tk-seal-bg: #1b2340;
+}
+
+.keepsake-ticket--blush {
+  background: linear-gradient(140deg, #fdf7f5 0%, #f5e8e3 100%);
+  color: var(--color-navy-midnight);
+  border: 2px solid var(--color-navy-academic);
+  --tk-border: rgba(42, 69, 120, 0.24);
+  --tk-muted: #7a7d8c;
+  --tk-accent: #8e5a64;
+  --tk-detail-bg: rgba(42, 69, 120, 0.05);
+  --tk-stub-bg: #2a4578;
+  --tk-seal-bg: #1b2340;
+}
+
+.keepsake-ticket__main {
+  padding: clamp(0.85rem, 2.2vw, 1.35rem);
+}
+
+.keepsake-ticket__inner-border {
+  height: 100%;
+  border: 1px solid var(--tk-border);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.4rem, 3vw, 2.25rem);
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .keepsake-ticket__inner-border {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+.keepsake-ticket__portrait-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+}
+
+.keepsake-ticket__arch {
+  width: min(210px, 100%);
+  aspect-ratio: 2 / 3;
+  border-radius: 120px 120px 10px 10px;
+  padding: 5px;
+  border: 1.5px solid var(--tk-accent);
+  overflow: hidden;
+}
+
+.keepsake-ticket__arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 114px 114px 7px 7px;
+}
+
+.keepsake-ticket__grad-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.keepsake-ticket__grad-name {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.keepsake-ticket__grad-class {
+  font-size: 0.76rem;
+  color: var(--tk-muted);
+}
+
+.keepsake-ticket__info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: left;
+}
+
+.keepsake-ticket__kicker,
+.keepsake-ticket__micro {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tk-accent);
+}
+
+.keepsake-ticket__micro {
+  color: var(--tk-muted);
+}
+
+.keepsake-ticket__headline {
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.keepsake-ticket__rule {
+  border: 0;
+  height: 1px;
+  background-color: var(--tk-border);
+}
+
+.keepsake-ticket__guest-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.keepsake-ticket__guest-name {
+  font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+  line-height: 1.08;
+}
+
+.keepsake-ticket__dedication {
+  font-style: italic;
+  font-size: 0.92rem;
+  opacity: 0.84;
+}
+
+.keepsake-ticket__details {
+  display: grid;
+  gap: 0.65rem;
+  background-color: var(--tk-detail-bg);
+  border: 1px solid var(--tk-border);
+  padding: 0.95rem 1.05rem;
+}
+
+.keepsake-ticket__details dt {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tk-muted);
+}
+
+.keepsake-ticket__details dd {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.keepsake-ticket__details dd span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.82rem;
+  opacity: 0.82;
+}
+
+/* Right Stub with Ticket Notches */
+.keepsake-ticket__stub {
+  position: relative;
+  background-color: var(--tk-stub-bg);
+  color: var(--color-white-soft);
+  padding: 1.75rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 1.35rem;
+  border-top: 2px dashed rgba(200, 207, 218, 0.45);
+}
+
+@media (min-width: 820px) {
+  .keepsake-ticket__stub {
+    border-top: none;
+    border-left: 2px dashed rgba(200, 207, 218, 0.45);
+  }
+
+  .keepsake-ticket__stub::before,
+  .keepsake-ticket__stub::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--color-white-soft);
+    z-index: 4;
+  }
+
+  .keepsake-ticket__stub::before {
+    top: -15px;
+  }
+
+  .keepsake-ticket__stub::after {
+    bottom: -15px;
+  }
+}
+
+.keepsake-ticket__stub-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  color: var(--color-silver);
+}
+
+.keepsake-ticket__stub-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.keepsake-ticket__stub-date span {
+  font-size: 3.8rem;
+  line-height: 0.88;
+  color: var(--color-white-soft);
+}
+
+.keepsake-ticket__stub-date small {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--color-blush);
+}
+
+.keepsake-ticket__stub-date em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(200, 207, 218, 0.78);
+}
+
+/* Embossed Circular Graduation Seal */
+.keepsake-ticket__seal {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background-color: var(--tk-seal-bg);
+  border: 1.5px solid var(--color-silver);
+  box-shadow: inset 0 0 0 6px rgba(200, 207, 218, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.keepsake-ticket__seal span {
+  font-size: 1.65rem;
+  line-height: 1;
+  color: var(--color-white-soft);
+}
+
+.keepsake-ticket__seal small {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  color: var(--color-silver);
+}
+
+.keepsake-ticket__barcode {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.keepsake-ticket__bars {
+  display: block;
+  width: 140px;
+  height: 30px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(200, 207, 218, 0.78) 0px,
+    rgba(200, 207, 218, 0.78) 3px,
+    transparent 3px,
+    transparent 6px,
+    rgba(200, 207, 218, 0.78) 6px,
+    rgba(200, 207, 218, 0.78) 8px,
+    transparent 8px,
+    transparent 13px,
+    rgba(200, 207, 218, 0.78) 13px,
+    rgba(200, 207, 218, 0.78) 17px,
+    transparent 17px,
+    transparent 20px
+  );
+}
+
+.keepsake-ticket__barcode small {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: rgba(200, 207, 218, 0.68);
+}
+
+.seeyou__keepsake-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.seeyou__spinner {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

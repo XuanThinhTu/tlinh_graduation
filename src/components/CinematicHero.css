@@ -1,0 +1,191 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: clamp(5.2rem, 9vh, 6.8rem);
+  overflow: hidden;
+}
+
+.hero__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 68% 54% at 50% 42%, rgba(42, 69, 120, 0.36) 0%, rgba(27, 35, 64, 0.1) 52%, transparent 72%),
+    radial-gradient(circle at 50% 50%, transparent 42%, rgba(15, 16, 22, 0.72) 100%);
+  z-index: 1;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100svh - clamp(5.2rem, 9vh, 6.8rem));
+  padding-bottom: 2.25rem;
+  gap: clamp(1.5rem, 3.5vh, 2.5rem);
+}
+
+.hero__meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.hero__meta-right {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero__meta-right {
+    display: inline-flex;
+  }
+}
+
+/* Unobstructed editorial stage: headline clearly above wide landscape portrait */
+.hero__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.4rem, 3.2vh, 2.4rem);
+  margin-block: auto;
+  padding-block: clamp(0.75rem, 2vh, 1.5rem);
+}
+
+.hero__title-block {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 100%;
+  will-change: transform;
+}
+
+.hero__line-mask {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.06em;
+  padding-inline: 0.12em;
+}
+
+.hero__headline {
+  display: block;
+  font-size: clamp(2.4rem, 6.8vw, 6.2rem);
+  color: var(--color-ivory);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+  text-shadow: 0 10px 32px rgba(15, 16, 22, 0.45);
+}
+
+.hero__headline--italic {
+  color: var(--color-silver);
+  font-style: normal;
+}
+
+.hero__portrait-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 920px;
+  will-change: transform;
+}
+
+.hero__portrait-frame-accent {
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(200, 207, 218, 0.16);
+  pointer-events: none;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero__portrait-frame-accent {
+    display: block;
+  }
+}
+
+.hero__portrait-clip {
+  overflow: hidden;
+  border: 1px solid rgba(200, 207, 218, 0.28);
+  box-shadow: 0 34px 82px rgba(15, 16, 22, 0.62);
+}
+
+.hero__portrait-img {
+  object-position: center 45%;
+}
+
+.hero__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-dark);
+}
+
+@media (min-width: 768px) {
+  .hero__footer {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.hero__tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--color-white-soft);
+  font-weight: 400;
+}
+
+.hero__graduate-line {
+  margin-top: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-silver);
+}
+
+.hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-silver);
+  padding-block: 0.35rem;
+  transition: transform var(--duration-hover) var(--ease-tactile), color var(--duration-hover) var(--ease-tactile);
+}
+
+.hero__scroll:hover {
+  transform: translateY(3px);
+  color: var(--color-white-soft);
+}
+
+/* Transition statement bridge */
+.hero__bridge {
+  position: relative;
+  z-index: 2;
+  padding: clamp(5rem, 12vh, 9rem) var(--gutter-x);
+  text-align: center;
+  background: linear-gradient(180deg, rgba(27, 35, 64, 0) 0%, #1b2340 48%, #1b2340 100%);
+}
+
+.hero__bridge-text {
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-style: italic;
+  color: rgba(255, 253, 252, 0.9);
+  max-width: 680px;
+  margin: 0 auto;
+}

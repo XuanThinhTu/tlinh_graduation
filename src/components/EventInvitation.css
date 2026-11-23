@@ -1,0 +1,224 @@
+.invitation {
+  padding-block: clamp(5rem, 10vw, 9rem);
+}
+
+.invitation__card {
+  background-color: var(--color-white-soft);
+  border: 1px solid rgba(42, 69, 120, 0.16);
+  padding: clamp(0.85rem, 2.2vw, 1.5rem);
+  box-shadow: 0 28px 64px rgba(15, 16, 22, 0.08);
+}
+
+.invitation__inner-frame {
+  border: 1px solid var(--color-silver);
+  padding: clamp(1.75rem, 4.5vw, 4.25rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+@media (min-width: 960px) {
+  .invitation__inner-frame {
+    grid-template-columns: 5fr 7fr;
+    align-items: start;
+  }
+}
+
+.invitation__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 960px) {
+  .invitation__lead {
+    padding-right: 2.5rem;
+    border-right: 1px solid var(--color-border-light);
+  }
+}
+
+.invitation__date-emblem {
+  display: flex;
+  align-items: baseline;
+  gap: 1.15rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.invitation__day {
+  font-size: clamp(3.8rem, 7vw, 6.2rem);
+  line-height: 0.85;
+  color: var(--color-navy-midnight);
+}
+
+.invitation__date-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.invitation__month {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  color: var(--color-navy-academic);
+  font-weight: 500;
+}
+
+.invitation__weekday {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--color-muted-dark);
+}
+
+.invitation__statement {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.invitation__kicker,
+.invitation__subkicker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+}
+
+.invitation__name {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  color: var(--color-navy-midnight);
+  margin-block: 0.45rem 0.2rem;
+}
+
+.invitation__uni {
+  font-size: 1rem;
+  color: var(--color-graphite);
+  font-weight: 500;
+}
+
+.invitation__class {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: var(--color-navy-academic);
+  margin-top: 0.35rem;
+}
+
+/* Right details list */
+.invitation__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.invitation__dl {
+  display: flex;
+  flex-direction: column;
+}
+
+.invitation__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+@media (min-width: 600px) {
+  .invitation__row {
+    grid-template-columns: 130px 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.invitation__row:first-child {
+  padding-top: 0;
+}
+
+.invitation__row dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+  padding-top: 0.2rem;
+}
+
+.invitation__row dd {
+  color: var(--color-navy-midnight);
+  font-size: 1rem;
+}
+
+.invitation__address {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--color-muted-dark);
+  font-size: 0.92rem;
+}
+
+.invitation__notes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  background-color: var(--color-ivory);
+  padding: 1.25rem;
+  border-left: 2px solid var(--color-navy-academic);
+}
+
+.invitation__note-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-navy-academic);
+  margin-bottom: 0.15rem;
+}
+
+.invitation__note-text {
+  font-size: 0.9rem;
+  color: var(--color-graphite);
+  line-height: 1.55;
+}
+
+.invitation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.invitation__actions .btn-editorial {
+  flex: 1 1 210px;
+}
+
+.invitation__secondary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+.invitation__text-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-graphite);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition:
+    color var(--duration-hover) var(--ease-tactile),
+    border-color var(--duration-hover) var(--ease-tactile);
+}
+
+.invitation__text-action:hover {
+  color: var(--color-navy-academic);
+  border-bottom-color: var(--color-navy-academic);
+}

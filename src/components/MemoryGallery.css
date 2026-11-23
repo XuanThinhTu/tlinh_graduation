@@ -1,0 +1,186 @@
+.memory-gallery {
+  margin-top: clamp(5rem, 11vw, 9rem);
+  padding-top: clamp(3.5rem, 7vw, 5.5rem);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.memory-gallery__header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.memory-gallery__title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--color-navy-midnight);
+  margin-top: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.memory-gallery__subtitle {
+  color: var(--color-muted-dark);
+  font-size: 0.95rem;
+}
+
+/* Mobile-first horizontal snap carousel */
+.memory-gallery__rail {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1.25rem 0.25rem 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.memory-gallery__slot {
+  flex: 0 0 76vw;
+  max-width: 280px;
+  scroll-snap-align: center;
+}
+
+/* Desktop editorial Polaroid table */
+@media (min-width: 960px) {
+  .memory-gallery__rail {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.25rem 1.75rem;
+    overflow: visible;
+    padding: 1.5rem 0.5rem 2.5rem;
+  }
+
+  .memory-gallery__slot {
+    flex: unset;
+    max-width: none;
+  }
+}
+
+.polaroid-card {
+  width: 100%;
+  text-align: left;
+  background-color: var(--color-white-soft);
+  padding: 0.85rem 0.85rem 1.35rem;
+  border: 1px solid rgba(42, 69, 120, 0.14);
+  box-shadow: 0 16px 34px rgba(15, 16, 22, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transform: translate3d(var(--card-tx, 0px), var(--card-ty, 0px), 0) rotate(var(--card-rot, 0deg));
+  transition:
+    box-shadow 260ms var(--ease-cinematic),
+    transform 260ms var(--ease-cinematic);
+  touch-action: pan-x pan-y;
+}
+
+@media (hover: hover) {
+  .polaroid-card:hover {
+    transform: translate3d(var(--card-tx, 0px), calc(var(--card-ty, 0px) - 8px), 0) rotate(0deg) scale(1.02);
+    box-shadow: 0 24px 48px rgba(15, 16, 22, 0.16);
+    z-index: 4;
+    position: relative;
+  }
+}
+
+.polaroid-card__frame {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.polaroid-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.polaroid-card__caption {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--color-graphite);
+}
+
+.polaroid-card__date {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  color: var(--color-muted-dark);
+}
+
+/* Lightbox Modal */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background-color: rgba(15, 16, 22, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.lightbox__panel {
+  width: 100%;
+  max-width: 560px;
+  background-color: var(--color-navy-midnight);
+  border: 1px solid var(--color-border-dark);
+  color: var(--color-white-soft);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 32px 80px rgba(15, 16, 22, 0.78);
+}
+
+.lightbox__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lightbox__close,
+.lightbox__nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 2px;
+  border: 1px solid var(--color-border-dark);
+  color: var(--color-white-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color var(--duration-hover) var(--ease-tactile),
+    color var(--duration-hover) var(--ease-tactile);
+}
+
+.lightbox__close:hover,
+.lightbox__nav-btn:hover {
+  border-color: var(--color-silver);
+  color: var(--color-silver);
+}
+
+.lightbox__media {
+  max-height: 62vh;
+  overflow: hidden;
+}
+
+.lightbox__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lightbox__caption {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--color-white-soft);
+}
+
+.lightbox__controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}

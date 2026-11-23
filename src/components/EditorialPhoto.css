@@ -1,0 +1,120 @@
+.editorial-photo {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-navy-ink);
+}
+
+.editorial-photo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 650ms var(--ease-cinematic);
+}
+
+.editorial-photo__placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white-soft);
+  overflow: hidden;
+}
+
+/* Harmonized Navy, Silver, Ivory & Soft Blush Editorial Plate Moods */
+.editorial-photo--hero-noir .editorial-photo__placeholder {
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(230, 199, 190, 0.16) 0%, rgba(42, 69, 120, 0.32) 38%, rgba(15, 16, 22, 0.94) 80%),
+    linear-gradient(165deg, #243254 0%, #1b2340 52%, #0f1016 100%);
+}
+
+.editorial-photo--warm-sepia .editorial-photo__placeholder {
+  background:
+    radial-gradient(circle at 28% 30%, rgba(230, 199, 190, 0.24), transparent 56%),
+    linear-gradient(145deg, #2c3b61 0%, #1d2745 58%, #13182b 100%);
+}
+
+.editorial-photo--editorial-slate .editorial-photo__placeholder {
+  background:
+    radial-gradient(circle at 72% 28%, rgba(200, 207, 218, 0.22), transparent 52%),
+    linear-gradient(155deg, #32446a 0%, #212e4d 60%, #151c31 100%);
+}
+
+.editorial-photo--golden-hour .editorial-photo__placeholder {
+  background:
+    radial-gradient(circle at 65% 24%, rgba(247, 243, 238, 0.24), transparent 54%),
+    linear-gradient(145deg, #394b72 0%, #243254 62%, #172038 100%);
+}
+
+.editorial-photo--warm-film .editorial-photo__placeholder {
+  background:
+    radial-gradient(circle at 32% 68%, rgba(230, 199, 190, 0.2), transparent 54%),
+    linear-gradient(135deg, #2f3d5f 0%, #1f2a46 62%, #151b2e 100%);
+}
+
+.editorial-photo--burgundy-tint .editorial-photo__placeholder {
+  background:
+    radial-gradient(circle at 52% 26%, rgba(200, 207, 218, 0.22), transparent 52%),
+    linear-gradient(150deg, #2a4578 0%, #1d2c50 60%, #12182a 100%);
+}
+
+.editorial-photo--cinematic-dusk .editorial-photo__placeholder {
+  background:
+    radial-gradient(ellipse at 50% 34%, rgba(200, 207, 218, 0.16), rgba(42, 69, 120, 0.28) 46%, rgba(15, 16, 22, 0.94) 82%),
+    linear-gradient(165deg, #243254 0%, #182038 64%, #0f1016 100%);
+}
+
+.editorial-photo__light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 16, 22, 0.08) 0%,
+    transparent 36%,
+    rgba(15, 16, 22, 0.56) 100%
+  );
+  pointer-events: none;
+}
+
+.editorial-photo__frame {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(200, 207, 218, 0.18);
+  pointer-events: none;
+}
+
+.editorial-photo__silhouette {
+  width: min(62%, 230px);
+  opacity: 0.92;
+  color: var(--color-silver);
+  pointer-events: none;
+}
+
+.editorial-photo__meta {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(200, 207, 218, 0.72);
+  z-index: 2;
+}
+
+.editorial-photo__plate {
+  color: var(--color-white-soft);
+}
+
+.editorial-photo__spec {
+  opacity: 0.76;
+}
