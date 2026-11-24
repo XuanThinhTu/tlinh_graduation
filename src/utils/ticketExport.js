@@ -320,11 +320,11 @@ export async function downloadKeepsakeCardPng({
 
   ctx.fillStyle = theme.textMuted;
   ctx.font = '500 13px "JetBrains Mono", monospace';
-  ctx.fillText('TRANG PHỤC', dx, detailY + 246);
+  ctx.fillText('LIÊN HỆ', dx, detailY + 246);
 
   ctx.fillStyle = theme.textSecondary;
   ctx.font = '500 18px "Barlow", sans-serif';
-  ctx.fillText(config.ceremony.dressCode, dx, detailY + 276, maxTextW - 56);
+  ctx.fillText(config.ceremony.contactText, dx, detailY + 276, maxTextW - 56);
 
   // 5. Right Stub: Giant Date + Embossed Circular Seal + Barcode Motif
   const stubCenterX = stubX + (width - stubX) * 0.5;

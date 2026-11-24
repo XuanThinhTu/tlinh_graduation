@@ -85,21 +85,14 @@ export default function EventInvitation({ config, recipientName }) {
                   </dd>
                 </div>
                 <div className="invitation__row">
-                  <dt>Trang phục</dt>
-                  <dd>{ceremony.dressCode}</dd>
+                  <dt>Liên hệ</dt>
+                  <dd>{ceremony.contactText}</dd>
+                </div>
+                <div className="invitation__row">
+                  <dt>Đi bằng Metro</dt>
+                  <dd>{ceremony.metroGuide}</dd>
                 </div>
               </dl>
-
-              {ceremony.notes?.length > 0 && (
-                <div className="invitation__notes">
-                  {ceremony.notes.map((note, idx) => (
-                    <div key={idx} className="invitation__note-item">
-                      <span className="invitation__note-label">{note.label}</span>
-                      <p className="invitation__note-text">{note.detail}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
 
               <div className="invitation__actions">
                 <button

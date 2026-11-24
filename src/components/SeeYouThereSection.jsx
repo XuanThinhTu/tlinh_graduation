@@ -3,10 +3,7 @@ import {
   CalendarPlus,
   Download,
   Loader2,
-  Mail,
   MapPin,
-  MessageCircle,
-  Phone,
   Sparkles,
 } from 'lucide-react';
 import { downloadIcsFile } from '../utils/calendar';
@@ -45,17 +42,10 @@ export default function SeeYouThereSection({ config, recipientName }) {
     return () => window.clearInterval(id);
   }, [ceremony.isoStart]);
 
-  const activeContacts = (seeYouThere.contacts || []).filter((c) => c.href && c.label);
   const displayGuest = keepsakeName.trim() || 'Bạn thân mến';
   const displayNote =
     dedication.trim() || 'Cảm ơn bạn đã là một phần thanh xuân thật đẹp.';
   const activeTheme = KEEPSAKE_THEMES[themeId] || KEEPSAKE_THEMES.navy;
-
-  const renderContactIcon = (href) => {
-    if (href.startsWith('tel:')) return <Phone size={15} strokeWidth={1.7} aria-hidden="true" />;
-    if (href.startsWith('mailto:')) return <Mail size={15} strokeWidth={1.7} aria-hidden="true" />;
-    return <MessageCircle size={15} strokeWidth={1.7} aria-hidden="true" />;
-  };
 
   // Subtle interactive 3D tilt + holographic foil glint on desktop pointer hover
   const handleCardPointerMove = (e) => {
@@ -150,33 +140,6 @@ export default function SeeYouThereSection({ config, recipientName }) {
               </div>
             )}
           </div>
-        )}
-
-        {/* Direct External Contact Links */}
-        {activeContacts.length > 0 ? (
-          <div className="seeyou__contacts">
-            {activeContacts.map((contact) => {
-              const isExternalHttp = contact.href.startsWith('http');
-              return (
-                <a
-                  key={contact.id}
-                  href={contact.href}
-                  target={isExternalHttp ? '_blank' : undefined}
-                  rel={isExternalHttp ? 'noreferrer' : undefined}
-                  className={`btn-editorial ${
-                    contact.primary ? 'btn-editorial--primary' : 'btn-editorial--outline-dark'
-                  }`}
-                >
-                  {renderContactIcon(contact.href)}
-                  <span>{contact.label}</span>
-                </a>
-              );
-            })}
-          </div>
-        ) : (
-          <p className="seeyou__contact-fallback">
-            Hãy nhắn trực tiếp cho {graduate.fullName} khi bạn sắp xếp được thời gian ghé chung vui nhé.
-          </p>
         )}
 
         {/* Upgraded Collectible Keepsake Invitation Studio (100% Client-Side) */}

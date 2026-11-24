@@ -21,7 +21,8 @@ export function buildCalendarDetails(config) {
   const location = `${ceremony.venueName}, ${ceremony.fullAddress}`;
   const description = [
     `Trân trọng kính mời bạn đến chung vui trong lễ tốt nghiệp của ${graduate.fullName} (${graduate.university}, ${graduate.classLabel}).`,
-    `Trang phục: ${ceremony.dressCode}`,
+    `Liên hệ: ${ceremony.contactText}`,
+    `Đi bằng Metro: ${ceremony.metroGuide}`,
     `Bản đồ: ${ceremony.mapsUrl}`,
   ].join('\n');
 

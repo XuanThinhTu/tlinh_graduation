@@ -1,10 +1,10 @@
 import './ChapterProgress.css';
 
 export const SCENE_LIST = [
-  { id: 'scene-hero', number: '01', label: 'Chương Cuối' },
-  { id: 'scene-story', number: '02', label: 'Bốn Năm Thanh Xuân' },
-  { id: 'scene-moment', number: '03', label: 'Khoảnh Khắc Tỏa Sáng' },
-  { id: 'scene-invitation', number: '04', label: 'Thiệp Mời' },
+  { id: 'scene-hero', number: '01', label: 'Một Chương Rực Rỡ' },
+  { id: 'scene-moment', number: '02', label: 'Khoảnh Khắc Tỏa Sáng' },
+  { id: 'scene-invitation', number: '03', label: 'Thiệp Mời' },
+  { id: 'scene-story', number: '04', label: 'Kỷ Yếu Hành Trình' },
   { id: 'scene-seeyou', number: '05', label: 'Hẹn Gặp Nhau' },
   { id: 'scene-epilogue', number: '06', label: 'Lời Kết' },
 ];

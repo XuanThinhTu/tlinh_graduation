@@ -21,7 +21,6 @@ export default function MemoryGallery({ gallery }) {
   const items = gallery.items || [];
   const activeItem = selectedIndex !== null ? items[selectedIndex] : null;
 
-  // Lightbox keyboard controls
   useEffect(() => {
     if (selectedIndex === null) return undefined;
 
@@ -70,7 +69,6 @@ export default function MemoryGallery({ gallery }) {
     }
     if (!drag.moved) return;
 
-    // Clamped offset so cards stay neatly within the table
     const nextX = Math.max(-72, Math.min(72, drag.originX + dx));
     const nextY = Math.max(-48, Math.min(48, drag.originY + dy));
     setOffsets((prev) => ({ ...prev, [id]: { x: nextX, y: nextY } }));
@@ -94,7 +92,7 @@ export default function MemoryGallery({ gallery }) {
   };
 
   return (
-    <div className="memory-gallery" aria-label="Interactive Polaroid gallery">
+    <div className="memory-gallery" aria-label="Góc lưu trữ — Cuốn phim kỷ yếu">
       <div className="memory-gallery__header">
         <span className="eyebrow eyebrow--muted">{gallery.eyebrow}</span>
         <h3 className="memory-gallery__title display-serif">{gallery.title}</h3>
@@ -118,20 +116,15 @@ export default function MemoryGallery({ gallery }) {
                 onPointerMove={(e) => handlePointerMove(e, item.id)}
                 onPointerUp={() => handlePointerUp(item.id, idx)}
                 onClick={() => handleCardClick(idx)}
-                aria-label={`Mở ảnh: ${item.caption} (${item.date})`}
+                aria-label={item.alt || `Mở ảnh kỷ yếu ${idx + 1}`}
               >
                 <span className="polaroid-card__frame">
                   <EditorialPhoto
                     src={item.src}
-                    alt={item.caption}
+                    alt={item.alt || `Ảnh kỷ yếu ${idx + 1}`}
                     aspectRatio="5 / 6"
                     mood={item.mood}
-                    recommendedSpec={item.recommendedSpec}
                   />
-                </span>
-                <span className="polaroid-card__meta">
-                  <span className="polaroid-card__caption">{item.caption}</span>
-                  <span className="polaroid-card__date">{item.date}</span>
                 </span>
               </button>
             </div>
@@ -139,23 +132,19 @@ export default function MemoryGallery({ gallery }) {
         })}
       </div>
 
-      {/* Focused Lightbox Viewer */}
+      {/* Clean Focused Lightbox Viewer (No text overlays) */}
       {activeItem && (
         <div
           className="lightbox"
           role="dialog"
           aria-modal="true"
-          aria-label={`Viewing photograph ${selectedIndex + 1} of ${items.length}`}
+          aria-label="Xem ảnh phóng to"
           onClick={(e) => {
             if (e.target === e.currentTarget) setSelectedIndex(null);
           }}
         >
           <div className="lightbox__panel">
             <div className="lightbox__topbar">
-              <span className="eyebrow eyebrow--accent">
-                {String(selectedIndex + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')} ·{' '}
-                {activeItem.date}
-              </span>
               <button
                 ref={closeBtnRef}
                 type="button"
@@ -168,36 +157,30 @@ export default function MemoryGallery({ gallery }) {
             </div>
 
             <div className="lightbox__media">
-              <EditorialPhoto
+              <img
                 src={activeItem.src}
-                alt={activeItem.caption}
-                aspectRatio="4 / 5"
-                mood={activeItem.mood}
-                plateLabel={activeItem.date}
-                recommendedSpec={activeItem.recommendedSpec}
+                alt={activeItem.alt || 'Ảnh kỷ yếu'}
+                className="lightbox__img"
               />
             </div>
 
-            <div className="lightbox__footer">
-              <p className="lightbox__caption">{activeItem.caption}</p>
-              <div className="lightbox__controls">
-                <button
-                  type="button"
-                  className="lightbox__nav-btn"
-                  onClick={() => setSelectedIndex((prev) => (prev - 1 + items.length) % items.length)}
-                  aria-label="Previous photo"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  type="button"
-                  className="lightbox__nav-btn"
-                  onClick={() => setSelectedIndex((prev) => (prev + 1) % items.length)}
-                  aria-label="Next photo"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
+            <div className="lightbox__controls">
+              <button
+                type="button"
+                className="lightbox__nav-btn"
+                onClick={() => setSelectedIndex((prev) => (prev - 1 + items.length) % items.length)}
+                aria-label="Ảnh trước"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                type="button"
+                className="lightbox__nav-btn"
+                onClick={() => setSelectedIndex((prev) => (prev + 1) % items.length)}
+                aria-label="Ảnh tiếp theo"
+              >
+                <ChevronRight size={18} />
+              </button>
             </div>
           </div>
         </div>

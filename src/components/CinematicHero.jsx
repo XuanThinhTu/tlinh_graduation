@@ -227,7 +227,7 @@ export default function CinematicHero({ config, preludeDone, recipientName }) {
             </p>
           </div>
 
-          <a href="#scene-story" className="hero__scroll" data-hero-reveal>
+          <a href="#scene-moment" className="hero__scroll" data-hero-reveal>
             <span>{config.hero.scrollHint}</span>
             <ArrowDown size={15} strokeWidth={1.6} aria-hidden="true" />
           </a>

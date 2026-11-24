@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import EditorialPhoto from './EditorialPhoto';
 import MemoryGallery from './MemoryGallery';
 import { MOTION_TOKENS, usePrefersReducedMotion } from '../utils/motion';
 import './StoryTimeline.css';
@@ -19,33 +18,15 @@ export default function StoryTimeline({ config }) {
       gsap.utils.toArray('[data-story-reveal]').forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 28 },
+          { opacity: 0, y: 24 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.78,
+            duration: 0.72,
             ease: MOTION_TOKENS.eases.cinematic,
             scrollTrigger: {
               trigger: el,
-              start: 'top 84%',
-              once: true,
-            },
-          }
-        );
-      });
-
-      gsap.utils.toArray('[data-story-photo]').forEach((el) => {
-        gsap.fromTo(
-          el,
-          { clipPath: 'inset(8% 0% 8% 0%)', opacity: 0.6 },
-          {
-            clipPath: 'inset(0% 0% 0% 0%)',
-            opacity: 1,
-            duration: 0.95,
-            ease: MOTION_TOKENS.eases.cinematic,
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 82%',
+              start: 'top 86%',
               once: true,
             },
           }
@@ -63,9 +44,8 @@ export default function StoryTimeline({ config }) {
       id="scene-story"
       ref={sectionRef}
       className="story scene-ivory paper-texture"
-      aria-label="Scene 02: Four Years, A Thousand Memories"
+      aria-label="Phần 04: Kỷ Yếu Hành Trình"
     >
-      {/* Subtle film-strip top border motif */}
       <div className="story__filmstrip" aria-hidden="true" />
 
       <div className="editorial-container">
@@ -87,142 +67,33 @@ export default function StoryTimeline({ config }) {
           <p className="story__subtitle">{story.subtitle}</p>
         </header>
 
-        {/* Four Alternating Editorial Chapters */}
+        {/* Four Refined Text-Only Editorial Chapters */}
         <div className="story__chapters">
-          {story.chapters.map((chapter) => {
-            if (chapter.layout === 'full-landscape') {
-              return (
-                <article key={chapter.id} className="chapter chapter--landscape">
-                  <div className="chapter__photo-stage" data-story-photo>
-                    <EditorialPhoto
-                      src={chapter.image.src}
-                      alt={chapter.image.alt}
-                      aspectRatio={chapter.image.aspectRatio}
-                      mood={chapter.image.mood}
-                      plateLabel={chapter.image.plateLabel}
-                      recommendedSpec={chapter.image.recommendedSpec}
-                    />
-                  </div>
-                  <div className="chapter__landscape-overlay" data-story-reveal>
-                    <span className="eyebrow eyebrow--accent">
-                      CHƯƠNG {chapter.number} · {chapter.period}
-                    </span>
-                    <h3 className="chapter__title display-serif">{chapter.title}</h3>
-                    <p className="chapter__desc">{chapter.description}</p>
-                    {chapter.quote && <blockquote className="chapter__quote">{chapter.quote}</blockquote>}
-                  </div>
-                </article>
-              );
-            }
-
-            if (chapter.layout === 'asymmetric-split') {
-              return (
-                <article key={chapter.id} className="chapter chapter--asymmetric">
-                  <div className="chapter__asymmetric-copy" data-story-reveal>
-                    <span className="chapter__index-large display-serif" aria-hidden="true">
-                      {chapter.number}
-                    </span>
-                    <span className="eyebrow eyebrow--muted">{chapter.period}</span>
-                    <h3 className="chapter__title display-serif">{chapter.title}</h3>
-                    <p className="chapter__desc">{chapter.description}</p>
-                    {chapter.annotation && (
-                      <p className="chapter__annotation">{chapter.annotation}</p>
-                    )}
-                  </div>
-                  <div className="chapter__asymmetric-media" data-story-photo>
-                    <EditorialPhoto
-                      src={chapter.image.src}
-                      alt={chapter.image.alt}
-                      aspectRatio={chapter.image.aspectRatio}
-                      mood={chapter.image.mood}
-                      plateLabel={chapter.image.plateLabel}
-                      recommendedSpec={chapter.image.recommendedSpec}
-                    />
-                  </div>
-                </article>
-              );
-            }
-
-            if (chapter.layout === 'polaroid-wall') {
-              return (
-                <article key={chapter.id} className="chapter chapter--wall">
-                  <div className="chapter__wall-header" data-story-reveal>
-                    <span className="eyebrow eyebrow--muted">
-                      CHƯƠNG {chapter.number} · {chapter.period}
-                    </span>
-                    <h3 className="chapter__title display-serif">{chapter.title}</h3>
-                    <p className="chapter__desc">{chapter.description}</p>
-                  </div>
-
-                  <div className="chapter__wall-grid">
-                    <div className="chapter__wall-main" data-story-photo>
-                      <EditorialPhoto
-                        src={chapter.image.src}
-                        alt={chapter.image.alt}
-                        aspectRatio={chapter.image.aspectRatio}
-                        mood={chapter.image.mood}
-                        plateLabel={chapter.image.plateLabel}
-                        recommendedSpec={chapter.image.recommendedSpec}
-                      />
-                    </div>
-
-                    <div className="chapter__wall-polaroids">
-                      {(chapter.accentImages || []).map((item, idx) => (
-                        <figure
-                          key={idx}
-                          className={`wall-polaroid wall-polaroid--${idx + 1}`}
-                          data-story-reveal
-                        >
-                          <EditorialPhoto
-                            src={item.src}
-                            alt={item.alt}
-                            aspectRatio="4 / 5"
-                            mood={item.mood}
-                            recommendedSpec={item.recommendedSpec}
-                          />
-                          <figcaption className="wall-polaroid__cap">
-                            <span>{item.caption}</span>
-                            <time className="wall-polaroid__date">{item.date}</time>
-                          </figcaption>
-                        </figure>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              );
-            }
-
-            // Chapter 04 — Dramatic Spread
-            return (
-              <article key={chapter.id} className="chapter chapter--spread">
-                <div className="chapter__spread-top" data-story-reveal>
-                  <span className="eyebrow eyebrow--muted">
+          {story.chapters.map((chapter) => (
+            <article key={chapter.id} className="chapter-entry" data-story-reveal>
+              <div className="chapter-entry__left">
+                <span className="chapter-entry__index display-serif" aria-hidden="true">
+                  {chapter.number}
+                </span>
+                <div className="chapter-entry__head">
+                  <span className="eyebrow eyebrow--accent">
                     CHƯƠNG {chapter.number} · {chapter.period}
                   </span>
-                  <h3 className="chapter__title chapter__title--spread display-serif">
-                    {chapter.title}
-                  </h3>
+                  <h3 className="chapter-entry__title display-serif">{chapter.title}</h3>
                 </div>
-                <div className="chapter__spread-media" data-story-photo>
-                  <EditorialPhoto
-                    src={chapter.image.src}
-                    alt={chapter.image.alt}
-                    aspectRatio={chapter.image.aspectRatio}
-                    mood={chapter.image.mood}
-                    plateLabel={chapter.image.plateLabel}
-                    recommendedSpec={chapter.image.recommendedSpec}
-                  />
-                </div>
-                <div className="chapter__spread-footer" data-story-reveal>
-                  <p className="chapter__desc">{chapter.description}</p>
-                  {chapter.quote && <blockquote className="chapter__quote">{chapter.quote}</blockquote>}
-                </div>
-              </article>
-            );
-          })}
+              </div>
+
+              <div className="chapter-entry__right">
+                <p className="chapter-entry__desc">{chapter.description}</p>
+                {chapter.quote && (
+                  <blockquote className="chapter-entry__quote">{chapter.quote}</blockquote>
+                )}
+              </div>
+            </article>
+          ))}
         </div>
 
-        {/* Dedicated Interactive Polaroid Gallery */}
+        {/* Dedicated Archive: All 7 Photos in Clean Polaroid Frames */}
         <MemoryGallery gallery={gallery} />
       </div>
     </section>

@@ -115,13 +115,13 @@ export default function App() {
           preludeDone={!showPrelude}
           recipientName={recipientName}
         />
-        <StoryTimeline config={eventConfig} />
         <GraduationMoment
           config={eventConfig}
           persistent3DActive={persistent3DActive}
           onTriggerToss={handleTriggerToss}
         />
         <EventInvitation config={eventConfig} recipientName={recipientName} />
+        <StoryTimeline config={eventConfig} />
         <SeeYouThereSection config={eventConfig} recipientName={recipientName} />
       </main>
 

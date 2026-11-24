@@ -16,16 +16,16 @@ export default function SiteNavigation({ activeScene, isLightSurface }) {
 
         <div className="site-nav__links">
           <a
-            href="#scene-story"
-            className={`site-nav__link ${activeScene === 'scene-story' ? 'is-active' : ''}`}
-          >
-            Câu Chuyện
-          </a>
-          <a
             href="#scene-invitation"
             className={`site-nav__link ${activeScene === 'scene-invitation' ? 'is-active' : ''}`}
           >
             Thiệp Mời
+          </a>
+          <a
+            href="#scene-story"
+            className={`site-nav__link ${activeScene === 'scene-story' ? 'is-active' : ''}`}
+          >
+            Kỷ Yếu
           </a>
           <a
             href="#scene-seeyou"
