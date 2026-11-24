@@ -27,7 +27,7 @@ function computeTimeLeft(isoStart) {
 const THEME_LIST = Object.values(KEEPSAKE_THEMES);
 
 export default function SeeYouThereSection({ config, recipientName }) {
-  const { seeYouThere, ceremony, graduate, project } = config;
+  const { seeYouThere, ceremony, graduate } = config;
   const [keepsakeName, setKeepsakeName] = useState(recipientName || '');
   const [dedication, setDedication] = useState('');
   const [themeId, setThemeId] = useState('navy');
@@ -274,19 +274,18 @@ export default function SeeYouThereSection({ config, recipientName }) {
                 </div>
               </div>
 
-              {/* Right Stub with Notches, Date, Embossed Seal & Barcode */}
+              {/* Right Stub with Notches, Refined Date/Time & Barcode */}
               <div className="keepsake-ticket__stub">
-                <span className="keepsake-ticket__stub-kicker">ADMIT ONE · KỶ NIỆM</span>
+                <span className="keepsake-ticket__stub-kicker">THIỆP KỶ NIỆM</span>
 
                 <div className="keepsake-ticket__stub-date">
                   <span className="display-serif">{ceremony.displayDateDay}</span>
                   <small>{ceremony.displayDateMonthYear}</small>
+                  <hr className="keepsake-ticket__stub-rule" />
+                  <strong className="keepsake-ticket__stub-weekday">
+                    {ceremony.displayWeekday}
+                  </strong>
                   <em>{ceremony.startTime}</em>
-                </div>
-
-                <div className="keepsake-ticket__seal" aria-hidden="true">
-                  <span className="display-serif">{project.monogram}</span>
-                  <small>CLASS OF 2026</small>
                 </div>
 
                 <div className="keepsake-ticket__barcode" aria-hidden="true">

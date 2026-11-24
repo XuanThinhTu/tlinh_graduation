@@ -69,20 +69,6 @@
   margin-block: 0.75rem 1.25rem;
 }
 
-.epilogue__monogram {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1px solid rgba(200, 207, 218, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
-  color: var(--color-silver);
-}
-
 .epilogue__signature {
   font-style: italic;
   font-size: 1.5rem;

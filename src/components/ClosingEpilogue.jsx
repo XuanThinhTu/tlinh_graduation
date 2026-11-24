@@ -45,11 +45,8 @@ export default function ClosingEpilogue({ config, onReplayPrelude }) {
 
         <p className="epilogue__supporting">{epilogue.supportingCopy}</p>
 
-        {/* Embossed Monogram & Signature */}
+        {/* Signature */}
         <div className="epilogue__signoff">
-          <div className="epilogue__monogram" aria-hidden="true">
-            <span>{project.monogram}</span>
-          </div>
           <p className="epilogue__signature display-serif">{graduate.signatureText}</p>
           <p className="epilogue__credit">
             {graduate.fullName} — {graduate.classLabel}

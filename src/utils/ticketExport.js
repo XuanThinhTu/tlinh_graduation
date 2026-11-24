@@ -326,52 +326,41 @@ export async function downloadKeepsakeCardPng({
   ctx.font = '500 18px "Barlow", sans-serif';
   ctx.fillText(config.ceremony.contactText, dx, detailY + 276, maxTextW - 56);
 
-  // 5. Right Stub: Giant Date + Embossed Circular Seal + Barcode Motif
+  // 5. Right Stub: Refined Spacious Date, Time & Barcode Motif (No monogram seal)
   const stubCenterX = stubX + (width - stubX) * 0.5;
 
   ctx.textAlign = 'center';
   ctx.fillStyle = '#C8CFDA';
   ctx.font = '500 15px "JetBrains Mono", monospace';
-  ctx.fillText('ADMIT ONE · KỶ NIỆM', stubCenterX, 118);
+  ctx.fillText('THIỆP KỶ NIỆM', stubCenterX, 128);
 
+  // Spacious centered date & time block
   ctx.fillStyle = '#FFFDFC';
-  ctx.font = '800 116px "Barlow Semi Condensed", sans-serif';
-  ctx.fillText(config.ceremony.displayDateDay, stubCenterX, 266);
+  ctx.font = '800 132px "Barlow Semi Condensed", sans-serif';
+  ctx.fillText(config.ceremony.displayDateDay, stubCenterX, 368);
 
   ctx.fillStyle = '#E6C7BE';
+  ctx.font = '600 22px "JetBrains Mono", monospace';
+  ctx.fillText(config.ceremony.displayDateMonthYear, stubCenterX, 428);
+
+  // Fine hairline divider
+  ctx.strokeStyle = 'rgba(200, 207, 218, 0.42)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(stubCenterX - 54, 476);
+  ctx.lineTo(stubCenterX + 54, 476);
+  ctx.stroke();
+
+  ctx.fillStyle = '#FFFDFC';
   ctx.font = '600 20px "JetBrains Mono", monospace';
-  ctx.fillText(config.ceremony.displayDateMonthYear, stubCenterX, 314);
-
-  ctx.fillStyle = 'rgba(200, 207, 218, 0.78)';
-  ctx.font = '500 16px "JetBrains Mono", monospace';
-  ctx.fillText(config.ceremony.startTime, stubCenterX, 352);
-
-  // Embossed circular graduation seal
-  const sealY = 540;
-  ctx.beginPath();
-  ctx.arc(stubCenterX, sealY, 82, 0, Math.PI * 2);
-  ctx.fillStyle = theme.sealBg;
-  ctx.fill();
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = theme.sealBorder;
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.arc(stubCenterX, sealY, 68, 0, Math.PI * 2);
-  ctx.lineWidth = 1;
-  ctx.strokeStyle = 'rgba(200, 207, 218, 0.5)';
-  ctx.stroke();
-
-  ctx.fillStyle = theme.sealText;
-  ctx.font = '800 38px "Barlow Semi Condensed", sans-serif';
-  ctx.fillText(config.project.monogram, stubCenterX, sealY + 4);
+  ctx.fillText(config.ceremony.displayWeekday, stubCenterX, 530);
 
   ctx.fillStyle = '#C8CFDA';
-  ctx.font = '500 12px "JetBrains Mono", monospace';
-  ctx.fillText('CLASS OF 2026', stubCenterX, sealY + 30);
+  ctx.font = '500 24px "JetBrains Mono", monospace';
+  ctx.fillText(config.ceremony.startTime, stubCenterX, 574);
 
   // Decorative ticket barcode at bottom of stub
-  const barY = 740;
+  const barY = 736;
   const barW = 240;
   const barStartX = stubCenterX - barW / 2;
   const pattern = [3, 2, 5, 2, 2, 6, 3, 2, 4, 2, 5, 3, 2, 4, 6, 2, 3, 5, 2, 3, 4, 2, 5, 2];

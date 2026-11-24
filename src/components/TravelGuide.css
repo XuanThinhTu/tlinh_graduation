@@ -1,0 +1,406 @@
+.travel-guide {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.travel-guide__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.travel-guide__title {
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  color: var(--color-navy-midnight);
+}
+
+/* Parking Card */
+.travel-guide__parking {
+  background-color: var(--color-white-soft);
+  border: 1px solid rgba(42, 69, 120, 0.16);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  box-shadow: 0 14px 36px rgba(15, 16, 22, 0.05);
+}
+
+.travel-guide__parking-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.travel-guide__parking-body {
+  flex: 1 1 240px;
+}
+
+.travel-guide__parking-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-navy-academic);
+  margin-bottom: 0.2rem;
+}
+
+.travel-guide__parking-text {
+  color: var(--color-navy-midnight);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.travel-guide__parking-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-navy-academic);
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(42, 69, 120, 0.28);
+  border-radius: 2px;
+  transition:
+    background-color var(--duration-hover) var(--ease-tactile),
+    color var(--duration-hover) var(--ease-tactile);
+}
+
+.travel-guide__parking-link:hover {
+  background-color: var(--color-navy-midnight);
+  border-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+}
+
+/* Interactive Metro Board */
+.travel-guide__metro-board {
+  background-color: var(--color-white-soft);
+  border: 1px solid rgba(42, 69, 120, 0.16);
+  padding: clamp(1.4rem, 3.6vw, 2.5rem);
+  box-shadow: 0 22px 54px rgba(15, 16, 22, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.travel-guide__metro-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.travel-guide__metro-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.travel-guide__metro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--color-navy-academic);
+}
+
+.travel-guide__metro-title {
+  font-size: clamp(1.45rem, 2.5vw, 1.95rem);
+  color: var(--color-navy-midnight);
+}
+
+/* Chiều đi / Chiều về Segmented Control */
+.travel-guide__tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  background-color: var(--color-ivory);
+  border: 1px solid rgba(42, 69, 120, 0.18);
+  border-radius: 999px;
+}
+
+.travel-guide__tab {
+  padding: 0.52rem 1.15rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-graphite);
+  transition:
+    background-color 240ms var(--ease-cinematic),
+    color 240ms var(--ease-cinematic);
+}
+
+.travel-guide__tab.is-active {
+  background-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+}
+
+.travel-guide__tab-sep {
+  color: var(--color-muted);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Visual Animated Route Track */
+.transit-route {
+  position: relative;
+}
+
+.transit-route__track-h {
+  display: none;
+}
+
+.transit-route__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Mobile vertical metro spine */
+@media (max-width: 899px) {
+  .transit-route__list::before {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 28px;
+    bottom: 28px;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      rgba(42, 69, 120, 0.32) 0%,
+      rgba(200, 207, 218, 0.55) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+/* Desktop horizontal metro line with traveling animated beacon */
+@media (min-width: 900px) {
+  .transit-route__track-h {
+    display: block;
+    position: absolute;
+    top: 38px;
+    left: 9%;
+    right: 9%;
+    height: 3px;
+    background-color: rgba(42, 69, 120, 0.14);
+    border-radius: 999px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .transit-route__track-fill {
+    display: block;
+    height: 100%;
+    width: var(--route-progress, 0%);
+    background: linear-gradient(90deg, var(--color-navy-academic), var(--color-navy-midnight));
+    border-radius: 999px;
+    transition: width 680ms var(--ease-cinematic);
+  }
+
+  .transit-route__beacon {
+    position: absolute;
+    top: 50%;
+    left: var(--route-progress, 0%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-navy-midnight);
+    box-shadow: 0 0 0 5px rgba(42, 69, 120, 0.22);
+    transform: translate(-50%, -50%);
+    transition: left 680ms var(--ease-cinematic);
+  }
+
+  .transit-route--cols-4 .transit-route__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .transit-route--cols-3 .transit-route__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.transit-step {
+  position: relative;
+  z-index: 2;
+}
+
+.transit-step__card {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition:
+    background-color 280ms var(--ease-cinematic),
+    border-color 280ms var(--ease-cinematic),
+    transform 260ms var(--ease-cinematic);
+}
+
+@media (min-width: 900px) {
+  .transit-step__card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.9rem 0.85rem 1.25rem;
+  }
+}
+
+.transit-step.is-current .transit-step__card {
+  background-color: var(--color-ivory);
+  border-color: rgba(42, 69, 120, 0.24);
+}
+
+.transit-step__node-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.transit-step__node {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--color-white-soft);
+  border: 2px solid rgba(42, 69, 120, 0.28);
+  color: var(--color-navy-academic);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 300ms var(--ease-cinematic),
+    color 300ms var(--ease-cinematic),
+    border-color 300ms var(--ease-cinematic),
+    transform 300ms var(--ease-cinematic),
+    box-shadow 300ms var(--ease-cinematic);
+}
+
+.transit-step.is-passed .transit-step__node {
+  border-color: var(--color-navy-midnight);
+  color: var(--color-navy-midnight);
+}
+
+.transit-step.is-current .transit-step__node {
+  background-color: var(--color-navy-midnight);
+  border-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(27, 35, 64, 0.26);
+}
+
+.transit-step__num {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  padding: 0.1rem 0.3rem;
+  border-radius: 999px;
+  background-color: var(--color-ivory);
+  border: 1px solid rgba(42, 69, 120, 0.25);
+  color: var(--color-navy-midnight);
+}
+
+.transit-step__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.transit-step__badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-navy-academic);
+}
+
+.transit-step__title {
+  font-size: 1.15rem;
+  color: var(--color-navy-midnight);
+  line-height: 1.15;
+}
+
+.transit-step__detail {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-muted-dark);
+}
+
+/* Free Bus 166 Tip Callout */
+.travel-guide__tip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.35rem;
+  background: linear-gradient(135deg, #1b2340 0%, #243254 100%);
+  color: var(--color-white-soft);
+  border-radius: 3px;
+  border-left: 3px solid var(--color-blush);
+}
+
+.travel-guide__tip-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: rgba(255, 253, 252, 0.1);
+  border: 1px solid rgba(200, 207, 218, 0.28);
+  color: var(--color-blush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.travel-guide__tip-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.travel-guide__tip-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  color: var(--color-blush);
+}
+
+.travel-guide__tip-text {
+  font-size: 0.96rem;
+  color: var(--color-white-soft);
+  line-height: 1.5;
+}

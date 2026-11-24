@@ -22,7 +22,8 @@ export function buildCalendarDetails(config) {
   const description = [
     `Trân trọng kính mời bạn đến chung vui trong lễ tốt nghiệp của ${graduate.fullName} (${graduate.university}, ${graduate.classLabel}).`,
     `Liên hệ: ${ceremony.contactText}`,
-    `Đi bằng Metro: ${ceremony.metroGuide}`,
+    `Gửi xe: ${ceremony.travelGuide?.parkingText || ''}`,
+    `Metro: Xuống ga Metro ĐHQG → Grab / Xe bus 166 (miễn phí vé, mang theo mã QR CCCD/VNeID) → Trạm Nhà Điều hành / Thư viện Trung tâm ĐHQG → Đi bộ vào Hội trường Trần Chí Đáo.`,
     `Bản đồ: ${ceremony.mapsUrl}`,
   ].join('\n');
 

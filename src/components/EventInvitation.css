@@ -160,6 +160,95 @@
   font-size: 0.92rem;
 }
 
+/* Highlighted 1-Tap Phone Contact Row */
+.invitation__phone-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.invitation__phone-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.58rem 0.95rem 0.58rem 0.62rem;
+  background-color: var(--color-navy-midnight);
+  color: var(--color-white-soft);
+  border-radius: 3px;
+  border: 1px solid var(--color-navy-midnight);
+  box-shadow: 0 10px 24px rgba(27, 35, 64, 0.18);
+  transition:
+    background-color var(--duration-hover) var(--ease-tactile),
+    transform var(--duration-press) var(--ease-tactile),
+    box-shadow var(--duration-hover) var(--ease-tactile);
+}
+
+.invitation__phone-cta:hover {
+  background-color: var(--color-navy-academic);
+  border-color: var(--color-navy-academic);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(27, 35, 64, 0.24);
+}
+
+.invitation__phone-cta:active {
+  transform: scale(0.985);
+}
+
+.invitation__phone-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(255, 253, 252, 0.14);
+  color: var(--color-blush);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.invitation__phone-number {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-white-soft);
+}
+
+.invitation__phone-hint {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.48rem;
+  border-radius: 2px;
+  background-color: rgba(230, 199, 190, 0.2);
+  color: var(--color-blush);
+}
+
+.invitation__phone-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.56rem 0.78rem;
+  border-radius: 3px;
+  border: 1px solid rgba(42, 69, 120, 0.28);
+  background-color: var(--color-ivory);
+  color: var(--color-navy-midnight);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    background-color var(--duration-hover) var(--ease-tactile),
+    border-color var(--duration-hover) var(--ease-tactile);
+}
+
+.invitation__phone-copy:hover {
+  border-color: var(--color-navy-midnight);
+  background-color: var(--color-white-soft);
+}
+
 .invitation__notes {
   display: grid;
   grid-template-columns: 1fr;

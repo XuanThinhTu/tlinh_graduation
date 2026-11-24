@@ -1,11 +1,24 @@
 import { useState } from 'react';
-import { CalendarPlus, Check, ExternalLink, MapPin, Share2 } from 'lucide-react';
+import { CalendarPlus, Check, Copy, ExternalLink, MapPin, Phone, Share2 } from 'lucide-react';
 import { downloadIcsFile, getGoogleCalendarUrl } from '../utils/calendar';
+import TravelGuide from './TravelGuide';
 import './EventInvitation.css';
 
 export default function EventInvitation({ config, recipientName }) {
   const [shareFeedback, setShareFeedback] = useState('');
+  const [phoneCopied, setPhoneCopied] = useState(false);
   const { ceremony, graduate } = config;
+
+  const handleCopyPhone = async () => {
+    if (!ceremony.contactPhone || !navigator.clipboard?.writeText) return;
+    try {
+      await navigator.clipboard.writeText(ceremony.contactPhone);
+      setPhoneCopied(true);
+      window.setTimeout(() => setPhoneCopied(false), 2200);
+    } catch {
+      // Ignore clipboard error
+    }
+  };
 
   const handleShare = async () => {
     const shareUrl = window.location.href;
@@ -84,13 +97,44 @@ export default function EventInvitation({ config, recipientName }) {
                     <span className="invitation__address">{ceremony.fullAddress}</span>
                   </dd>
                 </div>
-                <div className="invitation__row">
+                <div className="invitation__row invitation__row--contact">
                   <dt>Liên hệ</dt>
-                  <dd>{ceremony.contactText}</dd>
-                </div>
-                <div className="invitation__row">
-                  <dt>Đi bằng Metro</dt>
-                  <dd>{ceremony.metroGuide}</dd>
+                  <dd>
+                    <div className="invitation__phone-wrap">
+                      <a
+                        href={`tel:${ceremony.contactPhone}`}
+                        className="invitation__phone-cta"
+                        aria-label={`Gọi ngay số ${ceremony.contactPhoneFormatted}`}
+                      >
+                        <span className="invitation__phone-icon" aria-hidden="true">
+                          <Phone size={15} strokeWidth={2} />
+                        </span>
+                        <span className="invitation__phone-number">
+                          {ceremony.contactPhoneFormatted}
+                        </span>
+                        <span className="invitation__phone-hint">Chạm để gọi</span>
+                      </a>
+
+                      <button
+                        type="button"
+                        className="invitation__phone-copy"
+                        onClick={handleCopyPhone}
+                        aria-label="Sao chép số điện thoại"
+                      >
+                        {phoneCopied ? (
+                          <>
+                            <Check size={13} aria-hidden="true" />
+                            <span>Đã chép</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy size={13} aria-hidden="true" />
+                            <span>Sao chép</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </dd>
                 </div>
               </dl>
 
@@ -147,6 +191,13 @@ export default function EventInvitation({ config, recipientName }) {
             </div>
           </div>
         </div>
+
+        {ceremony.travelGuide && (
+          <TravelGuide
+            travelGuide={ceremony.travelGuide}
+            mapsUrl={ceremony.mapsUrl}
+          />
+        )}
       </div>
     </section>
   );
